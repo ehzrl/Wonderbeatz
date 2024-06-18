@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add New Song Form</title>
+</head>
+<body>
+    <h2>Modify Song Page</h2><br>
+    <div class="modSong">
+    <form id="addSong" method="post" action="modSong.php">
+        <label><b> Song to change
+        </b>
+        </label>
+        <input type="text" name="sName" id="SName" placeholder="Song Name" >
+        <br><br>
+        <label><b>New Pitch
+        </b>
+        </label>
+        <input type="text" name="pitch" id="SPitch" placeholder="Pitch">
+        <br><br>
+	<label><b> New BPM
+        </b>
+        </label>
+        <input type="text" name="bpm" id="SPBM" placeholder="Beats per minute">
+        <br><br>
+        <input type="submit" name="songChange" id="sChange" value="Save Changes">
+    </form>
+</div>
+<div class="returnHome">
+    <form id="return" method="post" action="creatorHomePage.php">
+        <br>
+        <input type="submit" name="return" id="returnButton" value="Return Home">
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login Page</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+</head>
+<body>
+    <h2>Welcome To</h2> 
+    <h1>WonderBeats</h1>
+    
+    <!-- Login Page -->
+    <div id="login-page">
+        <form action="login.php" method="post">
+            <input type="text" name="userId" placeholder="User ID" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <div class="button-spacing"></div>
+            <button type="submit" id="login-button">Login</button>
+            <div class="button-spacing"></div>
+            <button id="create-account-button">Create Account</button>
+        </form>
+    </div>
+
+    <!-- Create Account Page -->
+    <div id="create-account-page" style="display: none;">
+        <form  id="createAccount" method="post" action="createAccount.php">
+        <h2>Create Account</h2>
+        <input type="text" name= "userID" placeholder="User ID" required>
+        <input type="text" name= "passwd" placeholder="Password" required>
+        <input type="text" name= "fName" placeholder=" First Name" required>
+        <input type="text" name= "lName" placeholder= "Last Name" required>
+        <select name="accountType" id = "accountType">
+            <option value="listener">Listener</option>
+            <option value="creator">Creator</option>
+        </select>
+        <button type="submit" id="submit-account-button">Submit</button>
+        </form>
+    </div>
+
+    <!-- Customer Service Page -->
+    <div id="customer-service-page" style="display: none;">
+        <h2>Customer Service</h2>
+        <button id="help-request-button">Submit Help Request</button>
+    </div>
+
+    <script>
+        // JavaScript to handle page switching
+        const loginPage = document.getElementById('login-page');
+        const createAccountPage = document.getElementById('create-account-page');
+        const customerServicePage = document.getElementById('customer-service-page');
+        const loginButton = document.getElementById('login-button');
+        const createAccountButton = document.getElementById('create-account-button');
+        const submitAccountButton = document.getElementById('submit-account-button');
+        const helpRequestButton = document.getElementById('help-request-button');
+
+        loginButton.addEventListener('click', () => {
+            loginPage.style.display = 'none';
+            createAccountPage.style.display = 'none';
+            customerServicePage.style.display = 'block';
+        });
+
+        createAccountButton.addEventListener('click', () => {
+            loginPage.style.display = 'none';
+            createAccountPage.style.display = 'block';
+            customerServicePage.style.display = 'none';
+        });
+
+        submitAccountButton.addEventListener('click', () => {
+            // Handle account creation logic here
+        });
+
+        helpRequestButton.addEventListener('click', () => {
+            // Implement a pop-up for help request form
+            alert('Implement help request pop-up here');
+        });
+    </script>
+</body>
+</html>

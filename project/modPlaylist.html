@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Modify Playlist Form</title>
+</head>
+<body>
+    <h2>Modify Playlist Page</h2><br>
+    <div class="modPlaylist">
+
+        <?php>
+        $listenerID = $_COOKIE["listenerID"];
+        $playName = $_COOKIE["playlistName"];
+
+        $conn = new mysqli("localhost", "root", "", "wonderbeatz") or die('Connection Failed: '.$conn->connect_error);
+
+        // print name of playlist followed by songs in it.
+        // SQL statement to get playlists
+
+                $sql = "SELECT *
+                        FROM song
+                        WHERE song.creatorID IN (SELECT DISTINCT song.creatorID
+                                                 FROM playlist, contains, song
+                                                 WHERE listenerID = '$listenerID' AND contains.playlistName like '$playName' AND contains.playlistName = playlist.name AND song.creatorID = contains.creatorID)";
+
+                echo '<pre>Song:               Artist:                              Pitch:                BPM:<pre>';
+
+       
+                $result = $conn->query($sql);
+                if($result)
+                {
+                    while ($row = $result->fetch_assoc())
+                    {
+                        printf("<pre>%-20s%-20s%20d %20d\n<pre>",$row["title"], $row["creatorID"], $row["pitch"], $row["BPM"]);
+                    }
+                }
+
+        <?>
+
+        <form id="addSong" method="post" action="modSong.php">
+            <label>
+                <b>
+                    Song to change
+                </b>
+            </label>
+            <input type="text" name="sName" id="SName" placeholder="Song Name">
+            <br><br>
+            <label>
+                <b>
+                    New Pitch
+                </b>
+            </label>
+            <input type="text" name="pitch" id="SPitch" placeholder="Pitch">
+            <br><br>
+            <label>
+                <b>
+                    New BPM
+                </b>
+            </label>
+            <input type="text" name="bpm" id="SPBM" placeholder="Beats per minute">
+            <br><br>
+            <input type="submit" name="songChange" id="sChange" value="Save Changes">
+        </form>
+    </div>
+    <div class="returnHome">
+        <form id="return" method="post" action="creatorHomePage.php">
+            <br>
+            <input type="submit" name="return" id="returnButton" value="Return Home">
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Playlist Form</title>
+
+    <meta charset="utf-8">
+    <!--meta name="viewport" content="width=device-width, initial-scale=1"-->
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+
+</head>
+<body>
+    <h2>Delete Playlist Page</h2><br>
+    <div class="deletePlaylist">
+        <form id="delPlaylist" method="post" action="deletePlaylist.php">
+            <label>
+                <b>
+                    Playlist Name
+                </b>
+            </label>
+            <input type="text" name="pName" id="PName" placeholder="Playlist Name">
+            <br><br>
+            <input type="submit" name="delPlaylist" id="pDelete" value="Delete">
+        </form>
+    </div>
+    <div class="returnHome">
+        <form id="return" method="post" action="ListenerAccount.php">
+            <br>
+            <input type="submit" name="return" id="returnButton" value="Return Home">
+        </form>
+    </div>
+</body>
+</html>

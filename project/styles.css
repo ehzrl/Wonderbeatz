@@ -1,0 +1,43 @@
+body 
+{
+    max-width: 400px;
+    margin: 10% auto;
+    padding: 20px;
+    line-height: 1.0;
+    font-size: 28px;
+    color: #444;
+    text-align: center;
+    justify-content: center;
+}
+
+h1,h2,h3 
+{
+    justify-content: center;
+}
+
+input[type="text"], input[type="password"], select, button 
+{
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+}
+
+button 
+{
+    justify-content: center;
+    width: 106%;
+    background-color: #aaaaaa;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover 
+{
+    background-color: #707070;
+}
+
+.button-spacing 
+{
+    margin-top: 10px;
+}
